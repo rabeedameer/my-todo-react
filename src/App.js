@@ -5,7 +5,7 @@ import ToDoList from './components/ToDoList';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="container">
         <Header tagline="This could be your shopping list"/>
         <ToDoList/>
       </div>
