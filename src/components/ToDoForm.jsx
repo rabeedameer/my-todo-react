@@ -1,19 +1,33 @@
-import React ,{Component} from 'react';
-
+import React ,{Component, createRef} from 'react';
 class ToDoForm extends Component{
-  handleSubmit(e){
+//to get the value of input elements when submitting a form, we need to create a reference
+// References are created as properties of our class, by using the React.createRef() method.
+// we need to change the binding of this for our event handler, so that we can access the instance of our component.
+  constructor(props){
+    super(props);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  textInput = createRef();
+
+  handleSubmit(e) {
     e.preventDefault();
-    console.log('Create new item');
+    console.log(`Create new item:${this.textInput.current.value}` );
   }
 
-
+  //We extended the constructor to set the binding of this for our event handler.
+  //created the reference textInput with createRef().
+  //added the reference to the input field, by using the ref attribute.
+  //added the value of the input reference to our console message in the event handler.
 
   render(){
     return(
       <form onSubmit={this.handleSubmit}>
         <input
+          name='name'
           type='text'
           placeholder='Add a new item...'
+          ref={this.textInput}
         />
         <div>
           <button type='submit'>
