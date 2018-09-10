@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header from './components/Header';
-import ToDoList from './components/ToDoList';
-import ToDoForm from './components/ToDoForm';
-import {getRandomTagline} from './helpers.js';
+import Header from './Header';
+import ToDoList from './ToDoList';
+import ToDoForm from './ToDoForm';
+import {getRandomTagline} from '../helpers.js';
 
 
 class App extends Component {
