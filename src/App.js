@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-
-
+import Header from './components/Header';
+import ToDoList from './components/ToDoList';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">My to do!</h1>
-        </header>
-        <p className="App-intro">
-          This is my to do list .
-        </p>
+        <Header/>
+        <ToDoList/>
       </div>
     );
   }
