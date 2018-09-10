@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uuid from 'uuid/v4';
 import Header from './Header';
 import ToDoList from './ToDoList';
 import ToDoForm from './ToDoForm';
@@ -12,12 +13,23 @@ class App extends Component {
     this.state = {
       toDoItems: {}
     }
-  }  
+  }
+  addToDo = text => {
+    const todo = {
+      uuid: uuid(),
+      text: text,
+      done: false
+    };
+    this.setState(state => {
+      state.toDoItems[todo.uuid] = todo;
+      return state;
+    });
+  };
   render() {
     return (
       <div className="container">
         <Header tagline={getRandomTagline()}/>
-        <ToDoForm/>
+        <ToDoForm addToDo={this.addToDo}/>
         <ToDoList/>
       </div>
     );

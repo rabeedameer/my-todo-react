@@ -10,10 +10,13 @@ class ToDoForm extends Component{
   }
   textInput = createRef();
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
-    console.log(`Create new item:${this.textInput.current.value}` );
-  }
+    const text = this.textInput.current.value.trim();
+    this.props.addToDo(text);
+    e.currentTarget.reset();
+
+  };
 
   //We extended the constructor to set the binding of this for our event handler.
   //created the reference textInput with createRef().
